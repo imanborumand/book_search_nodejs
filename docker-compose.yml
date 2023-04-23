@@ -1,0 +1,25 @@
+version: '2'
+services:
+
+
+
+  #mongodb service
+  search-mongo:
+    container_name: search-mongo
+    image: mongo:latest
+    volumes:
+      - mongo-vol:/data/db
+    networks:
+      - search-network
+
+
+volumes:
+  mongo-vol:
+    driver: local
+
+
+networks:
+  search-network:
+    driver: bridge
+      #    external: true
+
